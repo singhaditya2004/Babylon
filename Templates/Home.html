@@ -1,0 +1,644 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+}
+
+
+.main-image {
+  position: relative;
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image img {
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.search-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -100px;
+}
+
+.search-box form {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.search-box input[type="date"] {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+  background: white;
+}
+
+
+.search-box button {
+  background-color: #f1c40f;
+  border: none;
+  color: #2c3e50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #fff;
+  color: #2c3e50;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.idc{
+
+    height: 180px;
+}
+.jik{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left:-50px;
+}
+.mon{
+   height: 40px; 
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.uz h1{
+ font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  font-weight: 500;
+  background: linear-gradient(to right, #ff6b6b, #feca57, #1dd1a1, #54a0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+.uz img {
+  height: 70px;               
+    width: auto;}
+  .uz{
+    display: flex;             
+  justify-content: center;    
+  align-items: center;       
+  gap: 15px;                  
+  margin-top: 100px;  
+  }
+  .intro p{
+    color: maroon;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-size: x-large;
+  }
+  /* Outer box */
+.outer-box {
+  width: 80%;
+  margin: 50px auto;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+   
+  
+}
+
+/* Section */
+.info-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+ 
+}
+.abc h1{
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  font-weight: 500;
+  background: linear-gradient(to right, #ff6b6b, #feca57, #1dd1a1, #54a0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.event-box {
+  background-color: white;
+  border: 2px solid #f1c40f; 
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 20px auto; 
+  width: 50%;        
+  max-width: 400px;  
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* Hover effect */
+.event-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Titles inside event boxes */
+.event-box h3 {
+  color: #d35400;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+/* Descriptions */
+.event-box p {
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+/* Image inside each event box */
+.event-box img {
+  display: block;
+  width: 80px;        
+  height: 80px;
+  margin: 0 auto 10px; 
+  object-fit: cover;   
+}
+/* Contact Section */
+
+
+.contact h2 {
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  font-weight: 500;
+  background: linear-gradient(to right, #ff6b6b, #feca57, #1dd1a1, #54a0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Contact Info Container */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+/* Each contact item */
+.contact-item {
+  background-color: white;
+  border: 2px solid #f1c40f;
+  border-radius: 10px;
+  padding: 15px 25px;
+  width: 60%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  margin-left: -50px;
+
+}
+
+.contact-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact icons */
+.contact-item img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Text styling */
+.contact-item p {
+  color: #2c3e50;
+  font-size: 1rem;
+  margin: 0;
+  text-align: left;
+}
+
+.contact-item a {
+  color: #dd2476;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+.footer {
+  background-color: black;
+  color: white;     
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+
+
+nav {
+  width: 100%;
+  background: linear-gradient(90deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Menu Container */
+.menu {
+  position: relative;
+}
+
+/* Menu Button */
+.menu-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hidden Menu List */
+.menu-list {
+  list-style: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 10px 0;
+  display: none; /* Hidden by default */
+  min-width: 150px;
+}
+
+/* Show on hover */
+.menu:hover .menu-list {
+  display: block;
+}
+
+/* Menu Links */
+.menu-list li {
+  text-align: center;
+  display: block;
+
+  color: #2c3e50;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.menu-list li:hover {
+  background: #f1c40f;
+  color: #2c3e50;
+}
+
+.menu-list a{
+  text-decoration: none;
+  color: #333;
+}
+
+
+/* Background animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Popup background */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  
+  justify-content: center;
+  align-items: center;
+  
+  
+  
+}
+#popup-toggle:checked ~ .popup { display: flex; }
+
+/* Popup box */
+.popup-content {
+  background: white;
+  border-radius: 12px;
+  padding: 35px 30px;
+  width: 340px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+}
+  
+
+.popup-content h2{
+  background: linear-gradient(90deg,#ff512f,#dd2476,#24c6dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+   margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+.close-popup {
+  position: absolute;
+  top: 5px; right: 11px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+.what{
+   height: 40px; 
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.what:hover{
+  background-color:black;
+}
+
+/* Forms */
+.auth-form {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+.auth-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.auth-form button {
+  background: linear-gradient(90deg,#ff512f,#dd2476,#24c6dc);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Switch text/link */
+.switch-text {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+.switch-link {
+  color: #dd2476;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Correct toggle logic */
+#show-signup:checked ~ .signup-form {
+  display: flex;
+}
+#show-login:checked ~ .login-form {
+  display: flex;
+}
+
+</style>
+</head>
+
+<body>
+<div class="idc">
+
+<img src="https://static.vecteezy.com/system/resources/previews/011/236/431/non_2x/confetti-and-luxury-gold-balloon-birthday-celebration-border-free-png.png">
+</div>
+ <section class="main-image">
+    <img src="https://www.greenforestartstudio.com/wp-content/uploads/2020/02/Fremont-Union-City-Kids-Birthday-Party-Green-Forest-Art-Studio.jpg">
+     <div class="search-box">
+    <form>
+    
+   <a href="{% url 'slot_availability' %}">
+        <button type="button">Check time slots for booking</button>
+    </a>
+    <a href="https://wa.me/918999851977">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/930/748/original/whatsapp-logo-whatsapp-icon-whatsapp-transparent-free-png.png" class="what"  width="150">
+</a>
+
+   </div>
+  </section>
+  <div class="uz">
+  <img src="https://i.pinimg.com/originals/10/ef/0c/10ef0c804190d04cace0f0096ccb8912.jpg">
+  <h1>Welcome to BabyLon</h1>
+ 
+  </div>
+  <div class="intro">
+  <p>
+    <strong>BabyLon Studio</strong> is a cozy and creative space designed for your happiest moments!  
+    Whether it’s a birthday, a baby shower, or a small get-together, we make your celebrations special  
+    with beautiful decorations, warm ambience, and cheerful vibes.  
+    At BabyLon, every little occasion turns into a big memory! 🎈
+  </p>
+</div>
+<div class="outer-box">
+  <section class="info-section">
+  <div class="abc">
+    <h1>Celebration Types</h1>
+    </div>
+    
+
+   <div class="event-box">
+   <img src="https://www.seekpng.com/png/detail/126-1260464_birthday-party-icon-png.png">
+    <h3>Birthday Parties</h3>
+    <p>
+      Make every birthday unforgettable! We design colorful themes, fun decorations,  
+      and joyful setups that bring smiles to every face — both kids and adults alike.
+    </p>
+  </div>
+    <div class="event-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/4405/4405792.png">
+    <h3>Baby Showers</h3>
+    <p>
+      Celebrate the joy of welcoming a new life with warm, cozy, and picture-perfect setups.  
+      From balloons to themed backdrops, we make it all magical for the soon-to-be parents.
+    </p>
+  </div>
+
+    <div class="event-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/3957/3957493.png">
+      <h3>Corporate Events</h3>
+    <p>
+      Add a touch of class and creativity to your business gatherings!  
+      We arrange professional yet vibrant decor for team parties, meetings.
+    </p>
+  </section>
+</div>
+<section class="contact">
+  <h2>Contact Us</h2>
+
+  <div class="contact-info">
+    <div class="contact-item">
+      <img src="https://marketplace.canva.com/mlSbU/MAFYoHmlSbU/1/tl/canva-email-address-icon-MAFYoHmlSbU.png">
+      <p><strong>Email:</strong> <a href="BabyLonStudio7290@gmail.com">BabyLonStudio7290@gmail.com</a></p>
+    </div>
+
+    <div class="contact-item">
+      <img src="https://static.vecteezy.com/system/resources/previews/003/720/476/original/phone-icon-telephone-icon-symbol-for-app-and-messenger-vector.jpg">
+      <p><strong>Phone:</strong> +91 8999851977</p>
+    </div>
+
+    <div class="contact-item">
+      <img src="http://getdrawings.com/vectors/address-icon-vector-3.png">
+      <p><strong>Address:</strong> BabyLon Studio,  
+         7 rose villa street,Vasai,Maharashtra, India</p>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <p>© 2025 BabyLon Studio. All Rights Reserved.</p>
+</footer>
+<nav>
+  <div class="jik">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUHvBOOpAVnEWQISj8RtkqFaDLMCZ4DWSV0z1tgpzDCuat2DBMh4fko7mXyQcnUVcKPJF6__fSRYSDW7TaJ-TAwEJt7nrCsMP1L6_0Kn_BU8zcxLEEeKr9co_OyGS8wWLR7k64vipjtcuw9TazPlxXE2f2mlomR-uHXMMGCLC-_lJo1pfS6l70Atcvsg/s1280/b%20name%20style%20photo%20(2).jpg"
+      class="mon">
+    <div class="logo">BabyLon</div>
+  </div>
+
+  <div class="menu">
+    <button class="menu-btn">Menu ▾</button>     
+    <ul class="menu-list">
+      {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+    <li><a href="{% url 'login' %}">Login</a></li>
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+{% endif %}
+
+     <li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<input type="checkbox" id="popup-toggle" hidden>
+
+<div class="popup">
+  <div class="popup-content">
+    <label for="popup-toggle" class="close-popup">&times;</label>
+    <h1>
+{% if user.is_authenticated %}
+    Welcome, {{ user.username }}
+{% else %}
+    Welcome to BabyLon
+{% endif %}
+</h1>
+
+
+    
+    <input type="radio" id="show-signup" name="auth" checked hidden>
+    <input type="radio" id="show-login" name="auth" hidden>
+
+    
+    <div class="auth-form signup-form">
+      <h3>Create Your Account</h3>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="password" placeholder="Create Password" required>
+      <a href="{% url 'signup' %}">
+      <button type="button">Sign Up</button>
+      </a>
+
+      <p class="switch-text">
+        Already have an account?
+        <label for="show-login" class="switch-link">Login</label>
+      </p>
+    </div>
+
+    
+    <div class="auth-form login-form">
+      <h3>Login to Your Account</h3>
+      <input type="text" placeholder="Email or Phone" required>
+      <input type="password" placeholder="Password" required>
+      <a href="{% url 'login' %}">
+      <button type="button">Login</button>
+      </a>
+
+      <p class="switch-text">
+        Don’t have an account?
+        <label for="show-signup" class="switch-link">Sign Up</label>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  
+
+</body>
+</html>
+
+
+
+
+

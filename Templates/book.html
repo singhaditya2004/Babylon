@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Slot</title>
+
+    <style>
+          * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+ .nav {
+  width: 100%;
+  background: linear-gradient(90deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+}
+        body {
+            font-family: Arial, sans-serif;
+              background: linear-gradient(135deg, #cfe9ff, #ffd6eb);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .booking-card {
+            background: #fff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .booking-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #2575fc;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1a5ed8;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+        .jik{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left:-50px;
+}
+.mon{
+   height: 40px; 
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.menu {
+  position: relative;
+}
+
+/* Menu Button */
+.menu-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hidden Menu List */
+.menu-list {
+  list-style: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 10px 0;
+  display: none; /* Hidden by default */
+  min-width: 150px;
+}
+
+/* Show on hover */
+.menu:hover .menu-list {
+  display: block;
+}
+
+/* Menu Links */
+.menu-list li {
+  text-align: center;
+  display: block;
+
+  color: #2c3e50;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.menu-list li:hover {
+  background: #f1c40f;
+  color: #2c3e50;
+}
+
+.menu-list a{
+  text-decoration: none;
+  color: #333;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="booking-card">
+    <h2>Book Your Slot</h2>
+
+    <!-- Django messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Select Date</label>
+        <input type="date" name="date" required>
+
+        <label>Select Time Slot</label>
+        <select name="time_slot" required>
+            <option value="">-- Choose Slot --</option>
+            <option value="10AM-11AM">10 AM – 11 AM</option>
+            <option value="11AM-12PM">11 AM – 12 PM</option>
+            <option value="12PM-1PM">12 PM – 1 PM</option>
+            <option value="2PM-3PM">2 PM – 3 PM</option>
+        </select>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+</div>
+<div class="nav">
+  <div class="jik">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUHvBOOpAVnEWQISj8RtkqFaDLMCZ4DWSV0z1tgpzDCuat2DBMh4fko7mXyQcnUVcKPJF6__fSRYSDW7TaJ-TAwEJt7nrCsMP1L6_0Kn_BU8zcxLEEeKr9co_OyGS8wWLR7k64vipjtcuw9TazPlxXE2f2mlomR-uHXMMGCLC-_lJo1pfS6l70Atcvsg/s1280/b%20name%20style%20photo%20(2).jpg"
+      class="mon">
+    <div class="logo">BabyLon</div>
+  </div>
+  <div class="menu">
+    <button class="menu-btn">Menu ▾</button>     
+  <ul class="menu-list">
+  <li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+   
+ </ul>
+
+  </div>
+  {% block content %}{% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slot Availability</title>
+
+    <style>
+          * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+        body {
+            font-family: Arial;
+           background: linear-gradient(120deg, #cfe9ff, #ffd6eb);
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-top:200px;
+           background-color:white;
+
+            
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .date-form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .date-form input[type="date"] {
+    padding: 8px;
+    font-size: 14px;
+    border-radius:8px;
+      background-color: #ffffff;   
+    color: #333333;             
+    border: 1px solid #cccccc;
+} 
+
+        .slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .slot {
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .available {
+            background: #28a745;
+        }
+
+        .booked {
+            background: #dc3545;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .legend span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .box {
+            width: 15px;
+            height: 15px;
+            border-radius: 4px;
+        }
+
+        .green { background: #28a745; }
+        .red { background: #dc3545; }
+        .button{
+            justify-content:center;
+            display:flex;
+            margin-top:20px;
+            
+            }
+        .btn{
+    
+    padding:6px 6px;  
+  font-size: 18px;    
+  border-radius: 10px;
+    cursor: pointer;
+    font-weight:bold;
+    background-color: white;
+    color: black;
+    
+}
+.btn:hover{
+   background-color: #444;
+   color:white;
+}
+
+       
+        .cho{
+            border-radius: 8px;
+             padding: 10px 10px;  
+            font-size: 12px;    
+            cursor: pointer;
+            font-weight:bold;
+            background-color: white;
+            color: black;
+   
+}
+.cho:hover {
+    
+  background-color: #444;
+  color:white;
+}
+
+
+    .nav {
+  width: 100%;
+  background: linear-gradient(90deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+}
+ .jik{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left:-50px;
+}
+.mon{
+   height: 40px; 
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.menu {
+  position: relative;
+}
+
+/* Menu Button */
+.menu-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hidden Menu List */
+.menu-list {
+  list-style: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 10px 0;
+  display: none; /* Hidden by default */
+  min-width: 150px;
+}
+
+/* Show on hover */
+.menu:hover .menu-list {
+  display: block;
+}
+
+/* Menu Links */
+.menu-list li {
+  text-align: center;
+  display: block;
+
+  color: #2c3e50;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.menu-list li:hover {
+  background: #f1c40f;
+  color: #2c3e50;
+}
+
+.menu-list a{
+  text-decoration: none;
+  color: #333;
+}
+
+
+    
+    
+        
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Available Slots</h2>
+
+    <form class="date-form" method="GET">
+        <input type="date" name="date" required value="{{ selected_date }}">
+        <button type="submit" class="cho">Check</button>
+    </form>
+
+    {% if selected_date %}
+        <div class="slots">
+            {% for slot in time_slots %}
+                {% if slot in booked_slots %}
+                    <div class="slot booked">
+                        {{ slot }} <br> BOOKED
+                    </div>
+                {% else %}
+                    <div class="slot available">
+                        {{ slot }} <br> AVAILABLE
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="legend">
+        <span><div class="box green"></div> Available</span>
+        <span><div class="box red"></div> Booked</span>
+    </div>
+    <div class="button">
+     <a href="{% url 'book_slot' %}" class="btn secondary">
+       <button type="submit" class="btn">Book Slot</button>
+    </a>
+    </div>
+</div>
+<div class="nav">
+  <div class="jik">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUHvBOOpAVnEWQISj8RtkqFaDLMCZ4DWSV0z1tgpzDCuat2DBMh4fko7mXyQcnUVcKPJF6__fSRYSDW7TaJ-TAwEJt7nrCsMP1L6_0Kn_BU8zcxLEEeKr9co_OyGS8wWLR7k64vipjtcuw9TazPlxXE2f2mlomR-uHXMMGCLC-_lJo1pfS6l70Atcvsg/s1280/b%20name%20style%20photo%20(2).jpg"
+      class="mon">
+    <div class="logo">BabyLon</div>
+  </div>
+  <div class="menu">
+    <button class="menu-btn">Menu ▾</button>     
+  <ul class="menu-list">
+  <li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+   
+ </ul>
+
+  </div>
+  {% block content %}{% endblock %}
+
+
+</body>
+</html>
