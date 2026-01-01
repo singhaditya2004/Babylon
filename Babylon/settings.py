@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-$hqf%k=h#sul)uvqxf0cjjtwt#%e06p%ks^klx7_4s(ute(-=j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kanika20.pythonanywhere.com']
 
 
 # Application definition
@@ -78,12 +79,11 @@ WSGI_APPLICATION = 'Babylon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'BabyLon',
-        'USER': 'root',
-        'PASSWORD': 'kanikasharma58072',
-        'HOST': 'localhost',
+        'NAME': 'kanika20$babylon_db',        # The name you just created
+        'USER': 'kanika20',                  # Your PythonAnywhere username
+        'PASSWORD': 'Singh@2004',   # The password you set in the DB tab
+        'HOST': 'kanika20.mysql.pythonanywhere-services.com', # Found on your DB tab
         'PORT': '3306',
-
     }
 }
 
@@ -126,6 +126,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Authentication redirects
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
