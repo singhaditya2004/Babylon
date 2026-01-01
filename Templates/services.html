@@ -179,47 +179,7 @@ nav {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-.popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  
-  justify-content: center;
-  align-items: center;
-  
-  
-  
-}
-#popup-toggle:checked ~ .popup { display: flex; }
 
-
-.popup-content {
-  background: white;
-  border-radius: 12px;
-  padding: 35px 30px;
-  width: 340px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  position: relative;
-}
-  
-
-.popup-content h2{
-  background: linear-gradient(90deg,#ff512f,#dd2476,#24c6dc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-   margin-bottom: 15px;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-}
-.close-popup {
-  position: absolute;
-  top: 5px; right: 11px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-}
 .jik{
   display: flex;
   align-items: center;
@@ -351,6 +311,60 @@ nav {
 #show-login:checked ~ .login-form {
   display: flex;
 }
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  nav {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .jik {
+    margin-left: 0;
+  }
+
+  /* SERVICES TITLE */
+  .pol {
+    font-size: 2.2rem;
+    margin-top: 30px;
+  }
+
+  /* SERVICE BOXES */
+  .service-container {
+    gap: 20px;
+  }
+
+  .service-box {
+    width: 90%;
+  }
+
+  /* CONTACT SECTION */
+  .contact-item {
+    width: 90%;
+    margin-left: 0;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-item p {
+    text-align: center;
+  }
+
+ 
+
+  /* MENU */
+  .menu-list {
+    position: static;
+    width: 100%;
+  }
+}
 
 </style>
 </head>
@@ -449,16 +463,6 @@ nav {
   </div>
 </nav>
 
-<input type="checkbox" id="popup-toggle" hidden>
-
-<div class="popup">
-  <div class="popup-content">
-    <label for="popup-toggle" class="close-popup">&times;</label>
-    <h2>Welcome to <span>BabyLon</span></h2>
-
-    
-    <input type="radio" id="show-signup" name="auth" checked hidden>
-    <input type="radio" id="show-login" name="auth" hidden>
 
     
     <div class="auth-form signup-form">

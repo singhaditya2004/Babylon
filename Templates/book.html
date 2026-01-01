@@ -175,6 +175,53 @@
   text-decoration: none;
   color: #333;
 }
+@media (max-width: 768px) {
+
+  body {
+    height: auto;
+    padding-top: 80px; /* space for fixed navbar */
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .nav {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .jik {
+    margin-left: 0;
+  }
+
+  /* BOOKING CARD */
+  .booking-card {
+    width: 90%;
+    padding: 25px 20px;
+  }
+
+  .booking-card h2 {
+    font-size: 1.5rem;
+  }
+
+  input, select {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  /* MENU */
+  .menu-list {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+}
 
 
     </style>
@@ -197,8 +244,15 @@
     <form method="POST">
         {% csrf_token %}
 
+
         <label>Select Date</label>
-        <input type="date" name="date" required>
+         <input
+    type="date"
+    name="date"
+    required
+    min="{{ today }}"
+    value="{{ selected_date }}"
+>
 
         <label>Select Time Slot</label>
         <select name="time_slot" required>

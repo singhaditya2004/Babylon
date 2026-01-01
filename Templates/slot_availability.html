@@ -229,6 +229,78 @@
   text-decoration: none;
   color: #333;
 }
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .nav {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .jik {
+    margin-left: 0;
+  }
+
+  /* CONTAINER */
+  .container {
+    margin: 120px 15px 40px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  /* DATE FORM */
+  .date-form input[type="date"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .cho {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* SLOTS GRID */
+  .slots {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .slot {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  /* LEGEND */
+  .legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* BUTTON */
+  .btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  /* MENU */
+  .menu-list {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+}
 
 
     
@@ -243,7 +315,14 @@
     <h2>Available Slots</h2>
 
     <form class="date-form" method="GET">
-        <input type="date" name="date" required value="{{ selected_date }}">
+       <input
+    type="date"
+    name="date"
+    required
+    min="{{ today }}"
+    value="{{ selected_date }}"
+>
+
         <button type="submit" class="cho">Check</button>
     </form>
 

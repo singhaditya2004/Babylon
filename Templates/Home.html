@@ -366,48 +366,8 @@ nav {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* Popup background */
-.popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  
-  justify-content: center;
-  align-items: center;
-  
-  
-  
-}
-#popup-toggle:checked ~ .popup { display: flex; }
 
-/* Popup box */
-.popup-content {
-  background: white;
-  border-radius: 12px;
-  padding: 35px 30px;
-  width: 340px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  position: relative;
-}
-  
 
-.popup-content h2{
-  background: linear-gradient(90deg,#ff512f,#dd2476,#24c6dc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-   margin-bottom: 15px;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-}
-.close-popup {
-  position: absolute;
-  top: 5px; right: 11px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-}
 .what{
    height: 40px; 
   width: 60px;
@@ -461,11 +421,78 @@ nav {
 #show-login:checked ~ .login-form {
   display: flex;
 }
+.alert {
+  margin: 10px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 80%;
+  text-align: center;
+  transition: opacity 0.5s ease-out;
+}
+.alert-success { background-color: #d4edda; color: #155724; }
+.alert-error { background-color: #f8d7da; color: #721c24; }
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .jik {
+    margin-left: 0;
+  }
+
+  .intro p {
+    margin: 15px;
+    font-size: 1rem;
+  }
+
+  .uz {
+    flex-direction: column;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .uz h1 {
+    font-size: 2rem;
+  }
+
+  .event-box {
+    width: 90%;
+  }
+
+  .contact-item {
+    width: 90%;
+    margin-left: 0;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-list {
+    position: static;
+    width: 100%;
+  }
+}
+
 
 </style>
 </head>
 
 <body>
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(alert => alert.style.opacity = '0');
+  }, 3000);
+</script>
+{% if messages %}
+  <div class="messages">
+    {% for message in messages %}  
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }} 
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <div class="idc">
 
 <img src="https://static.vecteezy.com/system/resources/previews/011/236/431/non_2x/confetti-and-luxury-gold-balloon-birthday-celebration-border-free-png.png">
@@ -580,23 +607,6 @@ nav {
 </nav>
 
 
-<input type="checkbox" id="popup-toggle" hidden>
-
-<div class="popup">
-  <div class="popup-content">
-    <label for="popup-toggle" class="close-popup">&times;</label>
-    <h1>
-{% if user.is_authenticated %}
-    Welcome, {{ user.username }}
-{% else %}
-    Welcome to BabyLon
-{% endif %}
-</h1>
-
-
-    
-    <input type="radio" id="show-signup" name="auth" checked hidden>
-    <input type="radio" id="show-login" name="auth" hidden>
 
     
     <div class="auth-form signup-form">

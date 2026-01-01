@@ -83,7 +83,7 @@ DATABASES = {
         'USER': 'kanika20',                  # Your PythonAnywhere username
         'PASSWORD': 'Singh@2004',   # The password you set in the DB tab
         'HOST': 'kanika20.mysql.pythonanywhere-services.com', # Found on your DB tab
-        'PORT': '3306',
+        'PORT': '',
     }
 }
 
