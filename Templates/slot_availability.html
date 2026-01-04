@@ -134,10 +134,21 @@
 }
 
 
-    nav {
-    padding: 6px 16px;
-    flex-wrap: wrap;
-  }
+    .nav {
+  width: 100%;
+  background: linear-gradient(90deg, #ff512f, #dd2476, #24c6dc, #514a9d);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+}
  .jik{
   display: flex;
   align-items: center;
@@ -224,7 +235,7 @@
     overflow-x: hidden;
   }
 
-  /* NAVBAR */
+  
   .nav {
     padding: 12px 20px;
   }
@@ -251,6 +262,9 @@
   .date-form input[type="date"] {
     width: 100%;
     margin-bottom: 10px;
+  
+  
+  
   }
 
   .cho {
