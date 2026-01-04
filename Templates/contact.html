@@ -298,10 +298,11 @@ nav {
   }
 
   /* NAVBAR */
-  nav {
-    padding: 12px 20px;
-    flex-wrap: wrap;
-  }
+ nav ul li a.active {
+  color: #ff6600;
+  font-weight: bold;
+}
+
    .menu-btn {
     padding: 10px 18px;
     font-size: 0.95rem;
@@ -366,6 +367,18 @@ nav {
 <section class="contact-map">
   <h2>Find Us Here</h2>
   <p>We’re located near Guru Nanak Gurudwara, Vasai — easily accessible for your celebrations!</p>
+<nav>
+  <div class="jik">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf1G8Y3h7ZC0zGJ1kFqzFZ3F5X8z4yq9e6s0cYVY9kK7Vx5Yy1y5yQ/s1600/logo.png" alt="Logo">
+
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'services' %}">Services</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
   <div class="map-container">
     <iframe 
@@ -422,7 +435,8 @@ nav {
 
      <li><a href="{% url 'home' %}">Home</a></li>
 <li><a href="{% url 'services' %}">Services</a></li>
-<li><a href="{% url 'contact' %}">Contact</a></li>
+<li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+
 
     </ul>
   </div>

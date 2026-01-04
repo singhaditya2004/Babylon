@@ -306,15 +306,11 @@ nav {
   }
 
   
-  nav {
-    width: 100%;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    flex-wrap: nowrap;
-  }
+ nav ul li a.active {
+  color: #ff6600;
+  font-weight: bold;
+}
+
 
   .jik {
     margin-left: 0;
@@ -405,6 +401,18 @@ nav {
     At <span>BabyLon Studio</span>, we create unforgettable experiences — from creative setups to 
     cinematic celebrations. Explore our personalized services below.
   </p>
+<nav>
+  <div class="jik">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf1G8Y3h7ZC0zGJ1kFqzFZ3F5X8z4yq9e6s0cYVY9kK7Vx5Yy1y5yQ/s1600/logo.png" alt="Logo">
+
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'services' %}">Services</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
   <div class="service-container">
 
@@ -484,7 +492,8 @@ nav {
 {% endif %}
 
      <li><a href="{% url 'home' %}">Home</a></li>
-<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'services' %}" class="active">Services</a></li>
+
 <li><a href="{% url 'contact' %}">Contact</a></li>
 
     </ul>
