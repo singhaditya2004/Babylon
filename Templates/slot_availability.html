@@ -237,16 +237,30 @@
   }
 
   
-  .nav {
+  nav {
+    width: 100%;
     padding: 12px 20px;
-  }
-
-  .logo {
-    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
   }
 
   .jik {
     margin-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mon {
+    height: 34px;
+    width: 34px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
   }
 
   /* CONTAINER */
@@ -298,12 +312,18 @@
     padding: 10px;
   }
 
-  /* MENU */
-  .menu-list {
-    position: static;
-    width: 100%;
-    text-align: center;
+  .menu-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
   }
+
+  .menu-list {
+    top: 44px;
+    right: 0;
+    width: 160px;
+  }
+ 
+  
 }
 
 
