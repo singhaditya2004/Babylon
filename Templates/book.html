@@ -179,27 +179,23 @@
 @media (max-width: 768px) {
 
   body {
-   
     overflow-x: hidden;
   }
 
-  
-   nav {
+  /* NAVBAR */
+  .nav {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-sizing: border-box;
-    flex-wrap: nowrap;
   }
 
   .jik {
-    margin-left: 0;
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left:-15px;
+    margin-left: 0;   /* ❌ remove negative margin */
   }
 
   .mon {
@@ -209,18 +205,17 @@
 
   .logo {
     font-size: 1.4rem;
-    
   }
 
-  
+  /* BOOKING CARD */
   .booking-card {
-    width: 90%;
-    padding: 25px 20px;
-    margin-top:50px;
+    width: 92%;
+    padding: 22px 18px;
+    margin-top: 120px; /* space for fixed navbar */
   }
 
   .booking-card h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   input, select {
@@ -231,13 +226,17 @@
     font-size: 15px;
     padding: 10px;
   }
- .menu-btn {
+
+  /* MENU BUTTON */
+  .menu-btn {
     padding: 8px 14px;
     font-size: 0.9rem;
-    margin-right:-45px;
+    margin-right: 0; /* ❌ remove negative margin */
   }
- .menu-list {
-    top: 44px;
+
+  /* DROPDOWN MENU */
+  .menu-list {
+    top: 48px;
     right: 0;
     width: 160px;
   }
